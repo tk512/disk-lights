@@ -115,7 +115,7 @@
                                 </textFieldCell>
                             </textField>
                             <scrollView wantsLayer="YES" fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VAK-BF-FOH">
-                                <rect key="frame" x="20" y="128" width="410" height="152"/>
+                                <rect key="frame" x="21" y="128" width="410" height="152"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <clipView key="contentView" ambiguous="YES" drawsBackground="NO" id="FOr-xg-Ofs">
                                     <rect key="frame" x="1" y="1" width="408" height="150"/>
@@ -127,21 +127,20 @@
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" scrollDirection="horizontal" id="vAu-Jj-7nV">
                                                 <size key="itemSize" width="100" height="100"/>
                                             </collectionViewFlowLayout>
-                                            <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="primaryBackgroundColor" white="1" alpha="0.5" colorSpace="deviceWhite"/>
                                             <connections>
                                                 <outlet property="dataSource" destination="SgI-QP-8Os" id="8go-8K-Mgg"/>
-                                                <outlet property="delegate" destination="SgI-QP-8Os" id="boU-b9-BDh"/>
                                             </connections>
                                         </collectionView>
                                     </subviews>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.50441459760273977" colorSpace="calibratedRGB"/>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="dFF-VN-XBs">
-                                    <rect key="frame" x="1" y="135" width="386" height="16"/>
+                                    <rect key="frame" x="1" y="-15" width="0.0" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="kxA-aZ-eLJ">
-                                    <rect key="frame" x="393" y="1" width="16" height="150"/>
+                                    <rect key="frame" x="-15" y="1" width="16" height="0.0"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>

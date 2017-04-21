@@ -11,9 +11,27 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
+    static var darkMode: Bool = false
     var eventMonitor: EventMonitor?
     let statusItem = NSStatusBar.system().statusItem(withLength: NSSquareStatusItemLength)
     let popover = NSPopover()
+    
+    func getDarkMode() -> Bool {
+        if let _ = UserDefaults.standard.string(forKey: "AppleInterfaceStyle") {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func darkModeChanged(sender: NSNotification) {
+        AppDelegate.darkMode = getDarkMode()
+    }
+
+    func initDarkModeHandler() {
+        DistributedNotificationCenter.default.addObserver(self, selector: #selector(darkModeChanged(sender:)), name: NSNotification.Name(rawValue: "AppleInterfaceThemeChangedNotification"), object: nil)
+        AppDelegate.darkMode = getDarkMode()
+    }
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         if let button = statusItem.button {
@@ -30,11 +48,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 self.closePopover(sender: event)
             }
         }
+        
+        // Ensure that when we click away, the main window closes
         eventMonitor?.start()
         
-        initIOKit()
+        // Handle dark mode in macOS
+        initDarkModeHandler()
+     // XXX   initIOKit()
     }
-
+    
     func showPopover(sender: AnyObject?) {
         if let button = statusItem.button {
             popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)

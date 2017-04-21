@@ -17,25 +17,51 @@
             <rect key="frame" x="0.0" y="0.0" width="111" height="111"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0aA-0H-dJY">
-                    <rect key="frame" x="0.0" y="0.0" width="111" height="111"/>
-                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Discoball" id="MQs-T5-bpf"/>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dYv-Eq-DFU">
+                    <rect key="frame" x="3" y="27" width="105" height="17"/>
+                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="yuC-Tg-lCT">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="s2l-9o-jWu">
+                    <rect key="frame" x="31" y="43" width="48" height="48"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="FtS-f4-Q8W"/>
+                        <constraint firstAttribute="width" constant="48" id="jUf-Gz-Fmg"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="ic_dns_48pt" id="x84-us-5EN"/>
                 </imageView>
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kbA-Nm-5mR">
+                    <rect key="frame" x="71" y="67" width="24" height="24"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="ic_check_circle" imagePosition="only" alignment="center" alternateImage="ic_check_circle_white" imageScaling="proportionallyUpOrDown" inset="2" id="VPQ-5W-wL0">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                </button>
             </subviews>
             <constraints>
-                <constraint firstItem="0aA-0H-dJY" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="J2U-oh-lWa"/>
-                <constraint firstItem="0aA-0H-dJY" firstAttribute="width" secondItem="Hz6-mo-xeY" secondAttribute="width" id="Ln4-YT-eAx"/>
-                <constraint firstItem="0aA-0H-dJY" firstAttribute="height" secondItem="Hz6-mo-xeY" secondAttribute="height" id="Mrq-Hq-Pyl"/>
-                <constraint firstItem="0aA-0H-dJY" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="gDK-aL-odt"/>
+                <constraint firstItem="dYv-Eq-DFU" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="Nby-R8-X5e"/>
+                <constraint firstAttribute="bottom" secondItem="dYv-Eq-DFU" secondAttribute="bottom" constant="27" id="XIY-MH-HGk"/>
+                <constraint firstItem="s2l-9o-jWu" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" id="Zub-If-Vr8"/>
+                <constraint firstItem="dYv-Eq-DFU" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="5" id="ftC-A5-XVV"/>
+                <constraint firstItem="s2l-9o-jWu" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="lsM-Yx-fpp"/>
+                <constraint firstAttribute="trailing" secondItem="dYv-Eq-DFU" secondAttribute="trailing" constant="5" id="zn0-7L-RaI"/>
             </constraints>
+            <point key="canvasLocation" x="138.5" y="168.5"/>
         </customView>
         <collectionViewItem id="Mf0-9e-ybR" customClass="DriveCollectionViewItem" customModule="Disk_Lights" customModuleProvider="target">
             <connections>
+                <outlet property="textField" destination="dYv-Eq-DFU" id="fiM-sl-rNC"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="pY1-Yq-i6i"/>
             </connections>
         </collectionViewItem>
     </objects>
     <resources>
-        <image name="Discoball" width="111" height="111"/>
+        <image name="ic_check_circle" width="48" height="48"/>
+        <image name="ic_check_circle_white" width="48" height="48"/>
+        <image name="ic_dns_48pt" width="96" height="96"/>
     </resources>
 </document>

@@ -15,13 +15,13 @@ class SettingsViewController: NSViewController {
         super.viewDidLoad()
         
         let flowLayout = NSCollectionViewFlowLayout()
-        flowLayout.itemSize = NSSize(width: 100.0, height: 100.0)
+        flowLayout.itemSize = NSSize(width: 100.0, height: 120.0)
         flowLayout.sectionInset = EdgeInsets(top: 10.0, left: 20.0, bottom: 10.0, right: 20.0)
         flowLayout.minimumInteritemSpacing = 20.0
         flowLayout.minimumLineSpacing = 20.0
         driveCollectionView.collectionViewLayout = flowLayout
         view.wantsLayer = true
-        driveCollectionView.layer?.backgroundColor = NSColor.red.cgColor
+        //driveCollectionView.layer?.backgroundColor = CGColor(
     }
     
     private var queue = DispatchQueue(label: "driveNodesQueue")
@@ -29,6 +29,7 @@ class SettingsViewController: NSViewController {
     @IBOutlet weak var driveCollectionView: NSCollectionView!
     @IBOutlet weak var testField: NSTextField!
     @IBOutlet weak var testLbl: NSTextField!
+    
     @IBAction func testButton(_ sender: Any) {
         
         guard let drives = refresh_drive_stats().takeRetainedValue() as? [[String:AnyObject]] else {
@@ -78,7 +79,7 @@ extension SettingsViewController : NSCollectionViewDataSource {
         
         let item = collectionView.makeItem(withIdentifier: "DriveCollectionViewItem", for: indexPath)
         guard let collectionViewItem = item as? DriveCollectionViewItem else {return item}
-        collectionViewItem.textField?.stringValue = "I\(indexPath)"
+        collectionViewItem.textField?.stringValue = "Disk \(indexPath)"
         return item
         
     }
