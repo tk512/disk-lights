@@ -72,88 +72,95 @@
             <objects>
                 <viewController storyboardIdentifier="SettingsViewController" id="SgI-QP-8Os" customClass="SettingsViewController" customModule="Disk_Lights" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="jTq-xk-UYu">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="265"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ykk-Um-AJ8">
-                                <rect key="frame" x="19" y="15" width="102" height="18"/>
+                                <rect key="frame" x="18" y="25" width="102" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="check" title="Start on boot" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Qsu-zI-xgQ">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                             </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Weu-hM-NtF">
-                                <rect key="frame" x="326" y="6" width="110" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Quit" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="DM7-yU-s95">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="quitButton:" target="SgI-QP-8Os" id="q9T-go-frK"/>
-                                </connections>
-                            </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WA9-bX-wEV">
-                                <rect key="frame" x="216" y="6" width="110" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Test" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="9SQ-5w-rLp">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="testButton:" target="SgI-QP-8Os" id="qhc-qA-T0k"/>
-                                </connections>
-                            </button>
-                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VO7-Gd-Vk7">
-                                <rect key="frame" x="20" y="42" width="410" height="78"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="8qu-th-Lfb">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <scrollView wantsLayer="YES" fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VAK-BF-FOH">
-                                <rect key="frame" x="21" y="128" width="410" height="152"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <clipView key="contentView" ambiguous="YES" drawsBackground="NO" id="FOr-xg-Ofs">
-                                    <rect key="frame" x="1" y="1" width="408" height="150"/>
+                            <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VAK-BF-FOH">
+                                <rect key="frame" x="21" y="54" width="408" height="145"/>
+                                <clipView key="contentView" drawsBackground="NO" id="FOr-xg-Ofs">
+                                    <rect key="frame" x="1" y="1" width="406" height="143"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <collectionView ambiguous="YES" id="d86-f0-TXo">
-                                            <rect key="frame" x="0.0" y="0.0" width="408" height="150"/>
+                                        <collectionView id="d86-f0-TXo">
+                                            <rect key="frame" x="0.0" y="0.0" width="406" height="143"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" scrollDirection="horizontal" id="vAu-Jj-7nV">
                                                 <size key="itemSize" width="100" height="100"/>
                                             </collectionViewFlowLayout>
-                                            <color key="primaryBackgroundColor" white="1" alpha="0.5" colorSpace="deviceWhite"/>
+                                            <color key="primaryBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <outlet property="dataSource" destination="SgI-QP-8Os" id="8go-8K-Mgg"/>
                                             </connections>
                                         </collectionView>
                                     </subviews>
-                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.50441459760273977" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </clipView>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="145" id="6lO-6N-lOx"/>
+                                </constraints>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="dFF-VN-XBs">
-                                    <rect key="frame" x="1" y="-15" width="0.0" height="16"/>
+                                    <rect key="frame" x="1" y="135" width="408" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="kxA-aZ-eLJ">
-                                    <rect key="frame" x="-15" y="1" width="16" height="0.0"/>
+                                    <rect key="frame" x="393" y="1" width="16" height="150"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mpn-p6-ZhM">
+                                <rect key="frame" x="21" y="207" width="411" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Select disks to be shown in status bar:" id="X0l-Qe-aMb">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vgy-z2-xdf">
+                                <rect key="frame" x="404" y="20" width="29" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="disclosure" bezelStyle="roundedDisclosure" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="kfh-a1-OUA">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Plf-1q-4Ya">
+                                <rect key="frame" x="21" y="226" width="409" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="405" id="q47-Pb-6Pk"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Disk Lights" id="pzs-aO-azw">
+                                    <font key="font" size="21" name="HelveticaNeue-Thin"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Mpn-p6-ZhM" secondAttribute="trailing" constant="20" id="2Ur-FI-pm7"/>
+                            <constraint firstItem="VAK-BF-FOH" firstAttribute="top" secondItem="Mpn-p6-ZhM" secondAttribute="bottom" constant="8" id="3nj-o1-HEg"/>
+                            <constraint firstItem="Plf-1q-4Ya" firstAttribute="top" secondItem="jTq-xk-UYu" secondAttribute="top" constant="14" id="7Yv-8j-d3D"/>
+                            <constraint firstItem="Mpn-p6-ZhM" firstAttribute="leading" secondItem="jTq-xk-UYu" secondAttribute="leading" constant="23" id="RGB-0k-yIU"/>
+                            <constraint firstItem="Mpn-p6-ZhM" firstAttribute="top" secondItem="jTq-xk-UYu" secondAttribute="top" constant="41" id="UIn-TT-E1z"/>
+                            <constraint firstItem="VAK-BF-FOH" firstAttribute="centerX" secondItem="jTq-xk-UYu" secondAttribute="centerX" id="hMq-ql-kh4"/>
+                            <constraint firstItem="VAK-BF-FOH" firstAttribute="leading" secondItem="jTq-xk-UYu" secondAttribute="leading" constant="21" id="opo-5w-ZB6"/>
+                            <constraint firstItem="Plf-1q-4Ya" firstAttribute="centerX" secondItem="jTq-xk-UYu" secondAttribute="centerX" id="qf9-f3-lm3"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="driveCollectionView" destination="d86-f0-TXo" id="Aps-ke-GkG"/>
-                        <outlet property="testField" destination="VO7-Gd-Vk7" id="Lwd-8r-f4K"/>
                     </connections>
                 </viewController>
                 <customObject id="NXU-F5-OAc" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-65" y="249"/>
+            <point key="canvasLocation" x="-65" y="231.5"/>
         </scene>
     </scenes>
 </document>

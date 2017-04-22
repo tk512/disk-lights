@@ -9,16 +9,12 @@
 import Cocoa
 
 class DriveCollectionViewItem: NSCollectionViewItem {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         view.wantsLayer = true
-        
-        //view.layer?.backgroundColor = NSColor.darkGray.cgColor
     }
     override func viewDidAppear() {
         super.viewDidAppear()
-        self.textField?.textColor = AppDelegate.darkMode ? NSColor.white : NSColor.black
     }
 }

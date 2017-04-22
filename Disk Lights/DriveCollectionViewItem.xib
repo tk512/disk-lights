@@ -21,7 +21,7 @@
                     <rect key="frame" x="3" y="27" width="105" height="17"/>
                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="yuC-Tg-lCT">
                         <font key="font" metaFont="system"/>
-                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
@@ -33,16 +33,21 @@
                     </constraints>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="ic_dns_48pt" id="x84-us-5EN"/>
                 </imageView>
-                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kbA-Nm-5mR">
-                    <rect key="frame" x="71" y="67" width="24" height="24"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="ic_check_circle" imagePosition="only" alignment="center" alternateImage="ic_check_circle_white" imageScaling="proportionallyUpOrDown" inset="2" id="VPQ-5W-wL0">
-                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                <button focusRingType="none" translatesAutoresizingMaskIntoConstraints="NO" id="kbA-Nm-5mR">
+                    <rect key="frame" x="75" y="67" width="24" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="24" id="BSl-P8-PK8"/>
+                        <constraint firstAttribute="height" constant="24" id="UZi-Qg-uJG"/>
+                    </constraints>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="ic_cancel" imagePosition="only" alignment="center" alternateImage="ic_check_circle" refusesFirstResponder="YES" focusRingType="none" imageScaling="proportionallyUpOrDown" inset="2" id="VPQ-5W-wL0">
+                        <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                 </button>
             </subviews>
             <constraints>
+                <constraint firstItem="kbA-Nm-5mR" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" id="1e9-p3-3gF"/>
+                <constraint firstItem="kbA-Nm-5mR" firstAttribute="leading" secondItem="s2l-9o-jWu" secondAttribute="trailing" constant="-4" id="EAC-GG-wm1"/>
                 <constraint firstItem="dYv-Eq-DFU" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="Nby-R8-X5e"/>
                 <constraint firstAttribute="bottom" secondItem="dYv-Eq-DFU" secondAttribute="bottom" constant="27" id="XIY-MH-HGk"/>
                 <constraint firstItem="s2l-9o-jWu" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" id="Zub-If-Vr8"/>
@@ -60,8 +65,8 @@
         </collectionViewItem>
     </objects>
     <resources>
-        <image name="ic_check_circle" width="48" height="48"/>
-        <image name="ic_check_circle_white" width="48" height="48"/>
-        <image name="ic_dns_48pt" width="96" height="96"/>
+        <image name="ic_cancel" width="24" height="24"/>
+        <image name="ic_check_circle" width="24" height="24"/>
+        <image name="ic_dns_48pt" width="48" height="48"/>
     </resources>
 </document>
