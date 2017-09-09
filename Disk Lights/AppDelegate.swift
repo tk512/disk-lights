@@ -11,11 +11,9 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
+    @IBOutlet weak var statusBarController: StatusBarController!
     static var darkMode: Bool = false
-    var eventMonitor: EventMonitor?
-    let statusItem = NSStatusBar.system().statusItem(withLength: NSSquareStatusItemLength)
-    let popover = NSPopover()
-    
+
     func getDarkMode() -> Bool {
         if let _ = UserDefaults.standard.string(forKey: "AppleInterfaceStyle") {
             return true
@@ -33,53 +31,27 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         AppDelegate.darkMode = getDarkMode()
     }
     
+    static let onReadWrite = Signal<(readPercentage: CGFloat, writePercentage: CGFloat)>()
+
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        if let button = statusItem.button {
-            button.image = NSImage(named: "StatusBarButtonImage")
-            button.action = #selector(togglePopover(sender:))
-        }
-        
-        popover.contentViewController = NSStoryboard(name: "Main", bundle: nil)
-            .instantiateController(withIdentifier: "SettingsViewController") as? NSViewController
-        
-        // The event monitor ensures that when we click outside the popover, it closes
-        eventMonitor = EventMonitor(mask: [NSEventMask.leftMouseDown, NSEventMask.rightMouseDown]) { [unowned self] event in
-            if self.popover.isShown {
-                self.closePopover(sender: event)
-            }
-        }
-        
-        // Ensure that when we click away, the main window closes
-        eventMonitor?.start()
-        
+        print("App did finish launching")
         // Handle dark mode in macOS
         initDarkModeHandler()
-     // XXX   initIOKit()
-    }
-    
-    func showPopover(sender: AnyObject?) {
-        if let button = statusItem.button {
-            popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
-        }
         
-        eventMonitor?.start()
+        // XXX
+        Timer.scheduledTimer(timeInterval: 2,
+                             target: self,
+                             selector: #selector(animateActivity),
+                             userInfo: nil,
+                             repeats: true)
     }
     
-    func closePopover(sender: AnyObject?) {
-        popover.performClose(sender)
+    func animateActivity() {
+        print("getting read/write percentages")
         
-        eventMonitor?.stop()
+        AppDelegate.onReadWrite.fire((readPercentage: CGFloat(2.5), writePercentage: CGFloat(1.0)))
     }
     
-    func togglePopover(sender: AnyObject?) {
-        if popover.isShown {
-            closePopover(sender: sender)
-        } else {
-            showPopover(sender: sender)
-        }
-    }
-    
-    func applicationWillTerminate(_ aNotification: Notification) {
-    }
+    func applicationWillTerminate(_ aNotification: Notification) {}
 }
 

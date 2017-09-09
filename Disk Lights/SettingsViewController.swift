@@ -11,6 +11,8 @@ import CoreFoundation
 
 class SettingsViewController: NSViewController {
     
+    var statusBarDelegate: StatusBarDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,17 +23,17 @@ class SettingsViewController: NSViewController {
         flowLayout.minimumLineSpacing = 20.0
         driveCollectionView.collectionViewLayout = flowLayout
         view.wantsLayer = true
-        //driveCollectionView.layer?.backgroundColor = CGColor(
     }
     
     private var queue = DispatchQueue(label: "driveNodesQueue")
     
     @IBOutlet weak var driveCollectionView: NSCollectionView!
-    @IBOutlet weak var testField: NSTextField!
-    @IBOutlet weak var testLbl: NSTextField!
     
     @IBAction func testButton(_ sender: Any) {
         
+        statusBarDelegate?.test()
+        
+        /*
         guard let drives = refresh_drive_stats().takeRetainedValue() as? [[String:AnyObject]] else {
             return
         }
@@ -55,9 +57,10 @@ class SettingsViewController: NSViewController {
         }
         
         queue.sync {
-            DriveManager.sharedInstance.driveNodes = updatedDriveNodes
-            testField.stringValue = "\(DriveManager.sharedInstance.driveNodes)"
+           // DriveManager.sharedInstance.driveNodes = updatedDriveNodes
+          //  testField.stringValue = "\(DriveManager.sharedInstance.driveNodes)"
         }
+ */
     }
     
     @IBAction func quitButton(_ sender: Any) {

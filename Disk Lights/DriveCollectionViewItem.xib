@@ -8,6 +8,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="DriveCollectionViewItem" customModule="Disk_Lights" customModuleProvider="target">
             <connections>
+                <outlet property="checkedButton" destination="kbA-Nm-5mR" id="y7t-y9-gj7"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -44,6 +45,17 @@
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                 </button>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tAM-Op-UwX">
+                    <rect key="frame" x="16" y="43" width="83" height="52"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" alignment="center" transparent="YES" imageScaling="proportionallyDown" inset="2" id="9AY-nM-hjb">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="clickedDrive:" target="Mf0-9e-ybR" id="pZ5-hm-e6m"/>
+                    </connections>
+                </button>
             </subviews>
             <constraints>
                 <constraint firstItem="kbA-Nm-5mR" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" id="1e9-p3-3gF"/>
@@ -59,6 +71,7 @@
         </customView>
         <collectionViewItem id="Mf0-9e-ybR" customClass="DriveCollectionViewItem" customModule="Disk_Lights" customModuleProvider="target">
             <connections>
+                <outlet property="checkedButton" destination="kbA-Nm-5mR" id="o9f-Zp-afy"/>
                 <outlet property="textField" destination="dYv-Eq-DFU" id="fiM-sl-rNC"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="pY1-Yq-i6i"/>
             </connections>

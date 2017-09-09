@@ -9,6 +9,12 @@
 import Cocoa
 
 class DriveCollectionViewItem: NSCollectionViewItem {
+
+    @IBOutlet weak var checkedButton: NSButton!
+    
+    @IBAction func clickedDrive(_ sender: Any) {
+        checkedButton.performClick(_: sender)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
