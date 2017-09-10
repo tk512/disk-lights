@@ -11,8 +11,6 @@ import CoreFoundation
 
 class SettingsViewController: NSViewController {
     
-    var statusBarDelegate: StatusBarDelegate?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,13 +23,11 @@ class SettingsViewController: NSViewController {
         view.wantsLayer = true
     }
     
-    private var queue = DispatchQueue(label: "driveNodesQueue")
-    
     @IBOutlet weak var driveCollectionView: NSCollectionView!
     
     @IBAction func testButton(_ sender: Any) {
         
-        statusBarDelegate?.test()
+    //    statusBarDelegate?.test()
         
         /*
         guard let drives = refresh_drive_stats().takeRetainedValue() as? [[String:AnyObject]] else {

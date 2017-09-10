@@ -14,6 +14,7 @@
 		524DBD1B1E9AA7B000F36D3E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524DBD191E9AA7B000F36D3E /* SettingsViewController.swift */; };
 		524DBD1E1E9AA9A200F36D3E /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524DBD1D1E9AA9A200F36D3E /* EventMonitor.swift */; };
 		524DBD221E9AB86B00F36D3E /* io.c in Sources */ = {isa = PBXBuildFile; fileRef = 524DBD201E9AB86B00F36D3E /* io.c */; };
+		525EFF941F64448F005774D5 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525EFF931F64448F005774D5 /* Extensions.swift */; };
 		5269F8971EA3DE55005603EA /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = 5269F8951EA3DE55005603EA /* util.c */; };
 		5269F89A1EA51057005603EA /* drive_nodes.c in Sources */ = {isa = PBXBuildFile; fileRef = 5269F8981EA51057005603EA /* drive_nodes.c */; };
 		5269F89C1EA6ADC8005603EA /* DriveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269F89B1EA6ADC8005603EA /* DriveData.swift */; };
@@ -23,7 +24,6 @@
 		52A518F71EACB50000A565CE /* StatusBarItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A518F61EACB50000A565CE /* StatusBarItemView.swift */; };
 		52A8B7651EA80FE80040F9A0 /* DriveCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A8B7631EA80FE80040F9A0 /* DriveCollectionViewItem.swift */; };
 		52A8B7661EA80FE80040F9A0 /* DriveCollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52A8B7641EA80FE80040F9A0 /* DriveCollectionViewItem.xib */; };
-		52B448E71F3FC25F00AB1C9A /* StatusBarImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B448E61F3FC25F00AB1C9A /* StatusBarImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +37,7 @@
 		524DBD1D1E9AA9A200F36D3E /* EventMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
 		524DBD201E9AB86B00F36D3E /* io.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = io.c; sourceTree = "<group>"; };
 		524DBD211E9AB86B00F36D3E /* io.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = io.h; sourceTree = "<group>"; };
+		525EFF931F64448F005774D5 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		5269F8931EA27108005603EA /* DiskArbitration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DiskArbitration.framework; path = System/Library/Frameworks/DiskArbitration.framework; sourceTree = SDKROOT; };
 		5269F8951EA3DE55005603EA /* util.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = util.c; sourceTree = "<group>"; };
 		5269F8961EA3DE55005603EA /* util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = util.h; sourceTree = "<group>"; };
@@ -49,7 +50,6 @@
 		52A518F61EACB50000A565CE /* StatusBarItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBarItemView.swift; sourceTree = "<group>"; };
 		52A8B7631EA80FE80040F9A0 /* DriveCollectionViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriveCollectionViewItem.swift; sourceTree = "<group>"; };
 		52A8B7641EA80FE80040F9A0 /* DriveCollectionViewItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DriveCollectionViewItem.xib; sourceTree = "<group>"; };
-		52B448E61F3FC25F00AB1C9A /* StatusBarImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBarImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,8 +102,8 @@
 				52A8B7641EA80FE80040F9A0 /* DriveCollectionViewItem.xib */,
 				52A518F41EAC0E2300A565CE /* StatusBarController.swift */,
 				52A518F61EACB50000A565CE /* StatusBarItemView.swift */,
-				52B448E61F3FC25F00AB1C9A /* StatusBarImage.swift */,
 				520BC4CB1F61D67C00174306 /* Signal.swift */,
+				525EFF931F64448F005774D5 /* Extensions.swift */,
 			);
 			path = "Disk Lights";
 			sourceTree = "<group>";
@@ -193,7 +193,6 @@
 				5269F89C1EA6ADC8005603EA /* DriveData.swift in Sources */,
 				524DBD221E9AB86B00F36D3E /* io.c in Sources */,
 				5269F89A1EA51057005603EA /* drive_nodes.c in Sources */,
-				52B448E71F3FC25F00AB1C9A /* StatusBarImage.swift in Sources */,
 				52A518F51EAC0E2300A565CE /* StatusBarController.swift in Sources */,
 				524DBD0B1E9AA4DE00F36D3E /* AppDelegate.swift in Sources */,
 				520BC4CC1F61D67C00174306 /* Signal.swift in Sources */,
@@ -203,6 +202,7 @@
 				524DBD1E1E9AA9A200F36D3E /* EventMonitor.swift in Sources */,
 				52A8B7651EA80FE80040F9A0 /* DriveCollectionViewItem.swift in Sources */,
 				5269F8971EA3DE55005603EA /* util.c in Sources */,
+				525EFF941F64448F005774D5 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

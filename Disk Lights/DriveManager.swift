@@ -10,42 +10,57 @@ import Foundation
 import Cocoa
 
 class DriveManager {
-   // let statusBarManager: StatusBarManager
-    //let popover: NSPopover
-    //var statusItem: NSStatusItem
-    //var eventMonitor: EventMonitor?
     
     var driveNodes: [String:DriveData] = [:]
     var drivesEnabled: [String:Bool] = [:]
     
-    func disabled() {
+    private var queue = DispatchQueue(label: "driveNodesQueue")
+    
+    private init() {
+        initIOKit()
+    }
+    
+    static let sharedInstance = DriveManager()
+    
+    func applyPrevBytesRead(serialNo: String) {
         
-        //self.statusBarManager = StatusBarManager()
-        //self.popover =
+    }
+    
+    func refresh() {
         
-        // XXX Initialize IO Kit
-        // initIOKit()
+        guard let drives = refresh_drive_stats().takeRetainedValue() as? [[String:AnyObject]] else {
+            return
+        }
         
-        // Take the drive nodes data and match up with drives enabled
-        // XXX
+        var updatedDriveNodes: [String:DriveData] = [:]
         
-        // Create status bar items
+        for drive in drives {
+            guard let name = drive["name"] as? String,
+                let serialNo = drive["serial_no"] as? String,
+                let bytesRead = drive["bytes_read"] as? UInt64,
+                let bytesWritten = drive["bytes_written"] as? UInt64 else {
+                    continue
+            }
+            
+            
+            var driveNodeData = DriveData(name: name,
+                                          serialNo: serialNo,
+                                          bytesRead: bytesRead,
+                                          bytesWritten: bytesWritten)
+            
+            if let curDriveNodeData = DriveManager.sharedInstance.driveNodes[serialNo] {
+                driveNodeData.prevBytesRead = curDriveNodeData.bytesRead
+                driveNodeData.prevBytesWritten = curDriveNodeData.bytesWritten
+            }
+            
+            updatedDriveNodes[serialNo] = driveNodeData
+            
+            print("Read rate: \(driveNodeData.readRate) bytes per sec")
+            print("Write rate: \(driveNodeData.writeRate) bytes per sec")
+        }
         
-        //statusItem = NSStatusBar.system().statusItem(withLength: NSSquareStatusItemLength)
-        
-     //   if let button = statusItem.button {
-      //      button.image = NSImage(named: "StatusBarButtonImage")
-       //     button.action = #selector(togglePopover(sender:))
-       // }
-        
-        // Ensure that when we click away, the main window closes
-        //eventMonitor?.start()
-        
-        // The event monitor ensures that when we click outside the popover, it closes
-     //   eventMonitor = EventMonitor(mask: [NSEventMask.leftMouseDown, NSEventMask.rightMouseDown]) { [unowned self] event in
-     //       if self.popover.isShown {
-     //           self.closePopover(sender: event)
-      //      }
-       // }
+        queue.sync {
+            DriveManager.sharedInstance.driveNodes = updatedDriveNodes
+        }
     }
 }
