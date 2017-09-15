@@ -22,10 +22,6 @@ class DriveManager {
     
     static let sharedInstance = DriveManager()
     
-    func applyPrevBytesRead(serialNo: String) {
-        
-    }
-    
     func refresh() {
         
         guard let drives = refresh_drive_stats().takeRetainedValue() as? [[String:AnyObject]] else {
@@ -42,7 +38,6 @@ class DriveManager {
                     continue
             }
             
-            
             var driveNodeData = DriveData(name: name,
                                           serialNo: serialNo,
                                           bytesRead: bytesRead,
@@ -53,10 +48,12 @@ class DriveManager {
                 driveNodeData.prevBytesWritten = curDriveNodeData.bytesWritten
             }
             
+            driveNodeData.updateRates()
+            
             updatedDriveNodes[serialNo] = driveNodeData
             
-            print("Read rate: \(driveNodeData.readRate) bytes per sec")
-            print("Write rate: \(driveNodeData.writeRate) bytes per sec")
+           // print("Read rate: \(driveNodeData.readRate) bytes per sec")
+            //print("Write rate: \(driveNodeData.writeRate) bytes per sec")
         }
         
         queue.sync {
@@ -64,3 +61,4 @@ class DriveManager {
         }
     }
 }
+

@@ -22,7 +22,7 @@ class StatusBarItemView: NSView, CAAnimationDelegate {
     let itemHeight = CGFloat(8)
     let itemPadding = CGFloat(20)
     
-    let scaleDuration = CFTimeInterval(0.25)
+    let scaleDuration = CFTimeInterval(0.33)
     
     init() {
         super.init(frame: NSRect(x:0,

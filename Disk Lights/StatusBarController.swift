@@ -17,6 +17,9 @@ class StatusBarController : NSObject {
     var settingsViewController: SettingsViewController?
     var subview: StatusBarItemView!
     
+    var prevReadValue: CGFloat = 0.0
+    var prevWriteValue: CGFloat = 0.0
+    
     override func awakeFromNib() {
 
         if let button = statusItem.button {
@@ -29,12 +32,24 @@ class StatusBarController : NSObject {
             button.target = self
             button.action = #selector(StatusBarController.togglePopover(_:))
             
-            AppDelegate.onRead.subscribe(on: self) { (data: (start: CGFloat, end: CGFloat)) in
-                self.subview.readAnimation(fromValue: data.start, toValue: data.end)
+            func normalizeValue(_ percentage: UInt64) -> CGFloat {
+                let scaleValue = (CGFloat(percentage)/100.0*1.0)+1.0
+                Swift.print("Scaling to \(scaleValue)")
+                return scaleValue
             }
             
-            AppDelegate.onWrite.subscribe(on: self) { (data: (start: CGFloat, end: CGFloat)) in
-                self.subview.writeAnimation(fromValue: data.start, toValue: data.end)
+            AppDelegate.onRead.subscribe(on: self) { (rate: UInt64) in
+                let toValue = normalizeValue(rate)
+                self.subview.readAnimation(fromValue: self.prevReadValue,
+                                           toValue: toValue)
+                self.prevReadValue = toValue
+            }
+            
+            AppDelegate.onWrite.subscribe(on: self) { (rate: UInt64) in
+                let toValue = normalizeValue(rate)
+                self.subview.writeAnimation(fromValue: self.prevWriteValue,
+                                           toValue: toValue)
+                self.prevWriteValue = toValue
             }
         }
         
